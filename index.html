@@ -726,7 +726,7 @@ The movement of a boundary between two different traffic states (speed, density,
 </section>
     
  <!-- ===================== -->   
-<section id="flowdensity">
+<section id="flow">
 <h2>Flow Density Curve of the Stream</h2>
     <section class="content-section">
     <!-- Left: Text -->
@@ -734,13 +734,32 @@ The movement of a boundary between two different traffic states (speed, density,
         <h3>State 1</h3>
         <p>Slope of line 0-1 (50 kph - speed of the vehicle before entry of the truck)</p>
         <h3>State 2</h3>
-        <p>Slope of line 0-2 (30 kph - speed of the vehicle before after of the truck)</p>
+        <p>Slope of line 0-2 (30 kph - speed of the vehicle after entry of the truck)</p>
          <h3>State 3</h3>
         <p>Slope of line 1-2 is the velocity of the shockwave:$ \omega = \frac{q_2-q_1}{k_2-k_1} $.</p>
     </div>
             <!-- Right: Image -->
     <div class="image-content">
         <img src="images/fd1.png" alt="Flow-Density Curve1">
+    </div>
+    </section>
+
+      <section class="content-section">
+    <!-- Left: Text -->
+    <div class="text-content">
+        <p>When the truck decides to exit, the vehicles will slowly accelerate and will travel at the capacity of the roadway, and slowly will reach normal speed at 50 kph</p>
+        <h3>State 1</h3>
+        <p>Slope of line 0-1 (Before entry of the truck)</p>
+        <h3>State 2</h3>
+        <p>Slope of line 1-2 (After entry of the truck)</p>
+         <h3>State 3</h3>
+        <p>Slope of line 2-3 is the velocity of the shockwave:$ \omega = \frac{q_3-q_2}{k_3-k_2} $.</p>
+        <p>$q_3=q_max$</p>
+        <p>$k_3=\fraq{k_j}{2}$</p>
+    </div>
+            <!-- Right: Image -->
+    <div class="image-content">
+        <img src="images/fd2.png" alt="Flow-Density Curve2">
     </div>
     </section>
 </section>
