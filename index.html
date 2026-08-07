@@ -137,7 +137,41 @@ VIDEOS
     height:auto;
     border-radius:15px;
 }
-  
+  .video-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+    max-width:1200px;
+    margin:60px auto;
+    padding:20px;
+}
+
+.video-box{
+    flex:1;
+}
+
+.video-box video{
+    width:100%;
+    max-width:450px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.text-box{
+    flex:1.5;
+}
+
+.text-box h2{
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+.text-box p{
+    line-height:1.8;
+    margin-bottom:15px;
+    text-align:justify;
+}
 /* ===========================
 Equation Box
 =========================== */
@@ -363,7 +397,26 @@ font-size:20px;
     font-size:28px;
 }
 }
+@media (max-width:768px){
 
+    .video-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .video-box video{
+        max-width:100%;
+    }
+
+    .text-box{
+        width:100%;
+    }
+
+    .text-box p{
+        text-align:left;
+    }
+
+}
 </style>
 
 </head>
@@ -461,20 +514,24 @@ The movement of a boundary between two different traffic states (speed, density,
 
 <section id="fluid">
 <h2>Fluid Flow Analogy</h2>
-<p>
-When a stone falls into a river, it transfers its kinetic energy to the water's surface, causing the surrounding water molecules to be displaced.
-<br>This disturbance creates concentric waves, or ripples, that propagate outward from the point of impact.
-<br>These waves form because water is a fluid that naturally seeks to restore equilibrium after its surface is disturbed.
-<br> As the displaced water moves, forces such as surface tension and gravity act together to smooth the disturbance, producing oscillating waves that spread in all directions. 
-<br>The ripple effect continues as the energy is gradually transferred through the water.
-<br>Over time, the waves dissipate as their energy is lost to friction and other resistive forces, allowing the water to return to its calm, undisturbed state.
-</p>
 
-  <div class="video-card">
-    <video controls>
-        <source src="videos/fluid.mp4" type="video/mp4">
-    </video>
-</div>
+<section class="video-content">
+    <div class="video-box">
+        <video controls>
+            <source src="videos/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="text-box">
+        <h2>Ripple Effect</h2>
+        <p>When a stone falls into a river, it transfers its kinetic energy to the water's surface, causing the surrounding water molecules to be displaced.</p>
+        <p>This disturbance creates concentric waves, or ripples, that propagate outward from the point of impact.</p>
+        <p>These waves form because water is a fluid that naturally seeks to restore equilibrium after its surface is disturbed.</p>
+        <p>As the displaced water moves, forces such as surface tension and gravity act together to smooth the disturbance, producing oscillating waves that spread in all directions.</p>
+        <p>The ripple effect continues as the energy is gradually transferred through the water. Over time, the waves dissipate as their energy is lost to friction and other resistive forces, allowing the water to return to its calm, undisturbed state.</p>
+    </div>
+</section>
   
 </section>
 
