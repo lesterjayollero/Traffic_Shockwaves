@@ -182,8 +182,11 @@ VIDEOS
     /* ===========================
 Math Jax for all Equations
 =========================== */
-    mjx-container {
-    font-size: 1.4em !important;
+ mjx-container[display="true"] {
+    display: block;
+    text-align: center;
+    font-size: 1.3em !important;
+    margin: 10px auto;
 }
 /* ===========================
 Equation Box
@@ -794,10 +797,13 @@ The movement of a boundary between two different traffic states (speed, density,
 <section id="computation">
 <h2>Computations</h2>
 <p><strong>Problem 1</strong></p>
+<div class="model-text">
 <p>The relation between speed and density on a section of highway is given by the following relation: $𝑢=100−0.8𝑘$</p>
 <p>At a flow of 1,000 veh/hr, a slow moving truck with speed of 20 kph enters the road and exits after 800 m. Estimate the speed of the shockwaves.</p><br>
-
+</div>
+    
 <p><strong>Problem 2</strong></p>
+<div class="model-text">
 <p>2. After mall opening, the traffic volume in a 6-lane divided highway at the peak hour is forecasted to be 5200 vph. An accident blocked 1 lane of the highway. It took 15 minutes till the accident is cleared and capacity is fully restored. Use the following speed-density relationship:
 $𝑢=112.81−0.583𝑘$<br>
 <ul>
@@ -806,10 +812,13 @@ $𝑢=112.81−0.583𝑘$<br>
     <li>Determine the speed of the shockwaves</li>
 </ul>
 </p><br>
+</div>
 
 <p><strong>Problem 3</strong></p>
+<div class="model-text">
 <p>The relation between speed and density on a section of highway is given by the following relation: $𝑢=90−0.75𝑘$</p>
 <p>At a flow of 1,200 veh/hr, a slow moving truck with speed of 25 kph enters the road and exits after 1.2km. Estimate the speed of the shockwaves.</p><br>
+</div>
     
 </section>
 
