@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear Regression</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f5f5f5;
+color:#222;
+}
+
+.wrapper{
+display:flex;
+}
+
+/* ===========================
+SIDEBAR
+=========================== */
+.sidebar{
+width:260px;
+height:100vh;
+position:sticky;
+top:0;
+background:#ffffff;
+padding:40px 25px;
+border-right:1px solid #ddd;
+overflow:auto;
+}
+
+.sidebar h2{
+font-size:22px;
+margin-bottom:25px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+margin-bottom:18px;
+}
+
+.sidebar a{
+text-decoration:none;
+color:#555;
+font-weight:500;
+transition:.25s;
+}
+
+.sidebar a:hover{
+color:#0b57d0;
+padding-left:8px;
+}
+
+.sidebar a.active{
+color:#0b57d0;
+font-weight:700;
+}
+
+/* ===========================
+MAIN
+=========================== */
+
+main{
+flex:1;
+max-width:950px;
+margin:auto;
+padding:50px;
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+text-align:center;
+margin-bottom:70px;
+}
+
+.hero h1{
+font-size:96px;
+font-weight:800;
+line-height:.9;
+letter-spacing:-5px;
+color:#1d2736;
+}
+
+.hero p{
+margin-top:30px;
+font-size:20px;
+font-weight:300;
+color:#555;
+}
+
+/* ===========================
+SECTIONS
+=========================== */
+
+section{
+margin-bottom:90px;
+}
+
+section h2{
+font-size:30px;
+margin-bottom:15px;
+color:#1d2736;
+}
+
+section p{
+font-size:19px;
+line-height:1.9;
+margin-bottom:15px;
+}
+
+/* ===========================
+Equation Box
+=========================== */
+
+.equation{
+background:white;
+padding:15px;
+font-size:20px;
+text-align:center;
+border-radius:8px;
+margin:20px 0;
+font-family:Cambria;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+/* ===========================
+Table
+=========================== */
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+}
+
+th{
+background:#1d2736;
+color:white;
+padding:10px;
+}
+
+td{
+padding:10px;
+border-bottom:1px solid #ddd;
+}
+
+/* ===========================
+Image Placeholder
+=========================== */
+
+.image{
+height:350px;
+background:white;
+border:2px dashed #cfcfcf;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:25px;
+border-radius:8px;
+font-size:22px;
+color:#777;
+
+}
+
+/* ===========================
+Cards
+=========================== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.card{
+background:#fff;
+padding:15px;
+border-radius:18px;
+overflow:hidden;      /* Makes image follow rounded corners */
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+padding:0;            /* Remove default padding */
+}
+
+  /* =====================================
+DETAILED MODEL SECTION
+===================================== */
+.model-detail{
+    margin: 50px 0:
+}
+.model-image{
+  text-align:center;  
+  margin-bottom:25px;
+}
+.model-image img{
+    width:70%;
+    max-width:700px;
+    height:auto;
+    display:inline-block;
+    margin:auto;
+}
+
+.model-text{
+    max-width:1000px;
+    margin:auto;
+}
+
+.model-text h3{
+    font-size:20px;
+    line-height:1.2;
+    margin-bottom:8px;
+    color:#1d2736;
+}
+
+.model-text p{
+    margin-bottom:13px;
+    line-height:1.5;
+    font-size:16px;
+    text-align:justify;
+}
+
+.model-text h4{
+    font-size:18px;
+    margin-top:13px;
+    margin-bottom:8px;
+}
+
+.blue{
+    color:#103a8c;
+}
+
+.green{
+    color:#00a651;
+}
+
+.red{
+    color:#d7191c;
+}
+
+.model-detail .equation{
+    padding:15px;
+    margin:20px 0;
+    font-size:20px;
+}
+
+.model-divider{
+    margin:70px 0;
+    border:none;
+    border-top:2px solid #ddd;
+
+}
+  .coef-group{
+    margin-top:10px;
+}
+.card:hover{
+transform:translateY(-5px);
+}
+  
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
+    display:block;
+    background:#fff;           /* White background for diagrams */
+    padding:10px;              /* Small padding around image */
+    border-bottom:1px solid #eee;
+}
+  
+.card-content{
+    padding:10px 15px;
+}
+  
+.card h3{
+margin-bottom:0 0 10px;
+color:#1d2736;
+font-size:1.6rem;
+line-height:1.2;
+}
+  
+  .card p{
+    margin:0;
+    line-height:1.3;
+    color:#555;
+}
+
+/* ===========================
+Footer
+=========================== */
+
+footer{
+text-align:center;
+padding:60px;
+font-size:15px;
+color:#777;
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:900px){
+.wrapper{
+display:block;
+}
+
+.sidebar{
+width:100%;
+height:auto;
+position:relative;
+border-right:none;
+border-bottom:1px solid #ddd;
+}
+
+main{
+padding:30px;
+}
+
+.hero h1{
+font-size:58px;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:20px;
+}
+.model-detail{
+    grid-template-columns:1fr;
+
+}
+
+.model-text h3{
+    font-size:28px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- =======================
+SIDEBAR
+======================== -->
+
+<aside class="sidebar">
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#fluid">Fluid Flow Analogy</a></li>
+<li><a href="#classification">Shockwave Classification</a></li>
+<li><a href="#timespace">Shockwave in the Time-Space Diagram</a></li>
+<li><a href="#flow">Fow-Density Curve of the Stream</a></li>
+<li><a href="#computation">Computations</a></li>
+</ul>
+
+</aside>
+
+<!-- =======================
+CONTENT
+======================== -->
+
+<main>
+<div class="hero">
+<h1>
+TRAFFIC<br>
+SHOCKWAVES
+</h1>
+<p>
+Traffic Flow Modeling Analogies
+</p>
+
+</div>
+
+<!-- ===================== -->
+<section id="intro">
+<h2>Introduction</h2>
+<p>
+The movement of a boundary between two different traffic states (speed, density, or flow)
+</p>
+
+  
+</section>
+
+<!-- ===================== -->
+
+<section id="fluid">
+<h2>Fluid Flow Analogy</h2>
+<p>
+Regression coefficients indicate the expected change in the dependent variable for every one-unit increase in an independent variable while keeping all other predictors constant.
+</p>
+</section>
+
+<!-- ===================== -->
+<section id="classification">
+<h2>Shockwave Classification</h2>
+<div class="model-detail">
+  <div class="model-text">
+        <h3>1.Regression Model with Binary Feature</h3>
+  </div>
+    <div class="model-image">
+        <img src="images/Regression(binary).png"
+             alt="Binary Linear Regression">
+    </div>
+    <div class="model-text">
+        <p>
+           This model summarizes the difference in average travel times between No Rain and With Rain Weather. 
+        </p>
+
+    </div>
+     
+<!-- ===================== -->
+
+
+<footer>
+Traffic Flow • Shockwaves
+</footer>
+
+</main>
+
+</div>
+
+<script>
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".sidebar a");
+window.addEventListener("scroll",()=>{
+let current="";
+sections.forEach(section=>{
+const sectionTop=section.offsetTop-120;
+if(pageYOffset>=sectionTop){
+current=section.getAttribute("id");
+}
+});
+
+navLinks.forEach(link=>{
+link.classList.remove("active");
+if(link.getAttribute("href")==="#"+current){
+link.classList.add("active");
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
