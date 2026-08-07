@@ -722,9 +722,9 @@ The movement of a boundary between two different traffic states (speed, density,
       <div class="model-image">
         <img src="images/topview.png"
              alt="Shockwave Top View">
-    </div>
-        
+    </div>        
 </section>
+    
  <!-- ===================== -->   
 <section id="flowdensity">
 <h2>Flow Density Curve of the Stream</h2>
@@ -736,15 +736,13 @@ The movement of a boundary between two different traffic states (speed, density,
         <h3>State 2</h3>
         <p>Slope of line 0-2 (30 kph - speed of the vehicle before after of the truck)</p>
          <h3>State 3</h3>
-        <p>Slope of line 1-2 is the velocity of the shockwave</p>
+        <p>Slope of line 1-2 is the velocity of the shockwave:$ \omega = \frac{q_2-q_1}{k_2-k_1} $.</p>
     </div>
             <!-- Right: Image -->
     <div class="image-content">
         <img src="images/fd1.png" alt="Flow-Density Curve1">
     </div>
     </section>
-
-    
 </section>
 
   <!-- ===================== -->      
@@ -779,6 +777,17 @@ link.classList.add("active");
 
 });
 
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  async>
+</script>
+    
 </script>
 
 </body>
